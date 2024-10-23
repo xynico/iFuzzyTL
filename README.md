@@ -1,6 +1,7 @@
 # iFuzzyTL
 code for iFuzzyTL: Interpretable Fuzzy Transfer Learning for SSVEP BCI System ( https://doi.org/10.48550/arXiv.2410.12267)
 
+'''
 model para: 
     seq_len = 150, -> Data Length
     embed_dim = 32, -> # Channels
@@ -20,3 +21,4 @@ model para:
     ),
 
     # The length N of num_heads, layer_sort, and methods should be same. N -> number of Fuzzy filters.
+'''
