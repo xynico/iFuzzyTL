@@ -1,12 +1,10 @@
 
 import torch
 import torch.nn as nn
-from .base import BaseArch
 from einops.layers.torch import Rearrange
 import sys
 from functools import partial
 import numpy as np
-from ..builder import ARCHS, build_backbone, build_head, build_arch
 from torch import Tensor
 from torch.nn.modules.linear import NonDynamicallyQuantizableLinear
 from torch.nn.init import constant_, xavier_normal_, xavier_uniform_
@@ -16,8 +14,7 @@ from torch.nn import functional as F
 from torch.nn import Linear, Dropout, Softmax
 from .MultiheadFuzzyAttention import FuzzyMultiheadAttention, FuzzyDualAttention
 
-@ARCHS.register_module()
-class FuzzyTrans(BaseArch):
+class FuzzyTrans(nn.Module):
     def __init__(self, pretrained = True, model_ckpt = None, fixed = True,
                 norm_layer=partial(nn.LayerNorm, eps=1e-6),  
                 seq_len = 40,
